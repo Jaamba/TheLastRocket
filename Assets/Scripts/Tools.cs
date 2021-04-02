@@ -25,7 +25,6 @@ public static class Tools
         }
     }
 
-
     //math stuff---------------------------------------------------------------------------
     
     //converts a vector3 into an array of floats
