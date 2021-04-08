@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6633983331058589091
+--- !u!114 &-8570941895568700813
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17,7 +17,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 1
+    overrideState: 0
     value: 1
   externalLut:
     overrideState: 0
@@ -25,25 +25,25 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 0
-    value: 2
+    value: 0
   toneCurveToeStrength:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
   toneCurveToeLength:
     overrideState: 0
-    value: 0
+    value: 0.5
   toneCurveShoulderStrength:
     overrideState: 0
-    value: 0.156
+    value: 0
   toneCurveShoulderLength:
     overrideState: 0
-    value: 0.87
+    value: 0.5
   toneCurveShoulderAngle:
     overrideState: 0
     value: 0
   toneCurveGamma:
     overrideState: 0
-    value: 3.68
+    value: 1
   ldrLut:
     overrideState: 0
     value: {fileID: 0}
@@ -64,14 +64,14 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   saturation:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 5
   brightness:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.15
   contrast:
     overrideState: 0
     value: 0
@@ -103,14 +103,14 @@ MonoBehaviour:
     overrideState: 0
     value: 100
   lift:
-    overrideState: 0
+    overrideState: 1
     value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0.03550296}
+    overrideState: 1
+    value: {x: 1, y: 1, z: 1, w: 0.10650887}
   gain:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 1, y: 1, z: 1, w: 0.07100592}
   masterCurve:
     overrideState: 0
     value:
@@ -748,7 +748,7 @@ MonoBehaviour:
       - 0.984375
       - 0.9921875
   hueVsHueCurve:
-    overrideState: 0
+    overrideState: 1
     value:
       curve:
         serializedVersion: 2
@@ -1311,34 +1311,6 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &-5696244971976859068
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 5.6
-  aperture:
-    overrideState: 0
-    value: 3.5
-  focalLength:
-    overrideState: 1
-    value: 60
-  kernelSize:
-    overrideState: 0
-    value: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,13 +1321,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: GameObject Profile
+  m_Name: CC
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: -6633983331058589091}
-  - {fileID: -5696244971976859068}
-  - {fileID: 2980386015618417219}
---- !u!114 &2980386015618417219
+  - {fileID: -8570941895568700813}
+  - {fileID: 3537085635823813196}
+--- !u!114 &3537085635823813196
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1382,12 +1353,12 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.2
+    value: 0.125
   smoothness:
-    overrideState: 1
-    value: 0.276
+    overrideState: 0
+    value: 0.2
   roundness:
-    overrideState: 1
+    overrideState: 0
     value: 1
   rounded:
     overrideState: 0

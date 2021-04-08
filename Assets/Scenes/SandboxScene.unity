@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.1708285, g: 0.21428281, b: 0.2905639, a: 1}
+  m_IndirectSpecularColor: {r: 0.45022625, g: 0.50026095, b: 0.575381, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -36094,14 +36094,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MacroObstacle
       objectReference: {fileID: 0}
-    - target: {fileID: 1625299899250889344, guid: 147a04790a185314d94a7997645ed68c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 1625299899250889344, guid: 147a04790a185314d94a7997645ed68c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.78
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147a04790a185314d94a7997645ed68c, type: 3}
 --- !u!1001 &6221837850188771706
@@ -36454,9 +36446,9 @@ MonoBehaviour:
   finalBlitToCameraTarget: 0
   antialiasingMode: 1
   temporalAntialiasing:
-    jitterSpread: 0.92
-    sharpness: 0
-    stationaryBlending: 0
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
     motionBlending: 0.85
   subpixelMorphologicalAntialiasing:
     quality: 2

@@ -80,7 +80,7 @@ public class Rocket : MonoBehaviour
     }
 
     //loses and restarts the level
-    private void Lose()
+    public void Lose()
     {
         deathParticles.Play();
 
@@ -92,9 +92,9 @@ public class Rocket : MonoBehaviour
     }
 
     //wins the level and starts the next one
-    private void Win()
+    public void Win()
     {
-        if (SceneManager.sceneCount > SceneManager.GetActiveScene().buildIndex)
+        if (SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1)
         {
             state = State.Transcending;
 
@@ -114,7 +114,7 @@ public class Rocket : MonoBehaviour
         if(winParticles.isPlaying)
             winParticles.Stop();
 
-        if (SceneManager.sceneCount > SceneManager.GetActiveScene().buildIndex)
+        if (SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
