@@ -17,6 +17,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] private float maximumAngularVelocity;
     [SerializeField] private float respawnDelay;
     [SerializeField] private float afterCrushDeathDelay;
+    [SerializeField] private RigidbodyConstraints[] localConstraints;
 
     [SerializeField] private AudioClip thrustSound;
     [SerializeField] private AudioClip deathSound;
@@ -50,10 +51,17 @@ public class Rocket : MonoBehaviour
         {
             ThrustInput();
             RotateInput();
+
+            SetLocalConstraints(localConstraints);
         }
 
         if (hasCrushed && thrustParticles.isPlaying)
             thrustParticles.Stop();
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            _rigidbody.angularVelocity = new Vector3(_rigidbody.angularVelocity.x, _rigidbody.angularVelocity.y, _rigidbody.angularVelocity.z + 10);
+        }
     }
 
     //when a collision is detected
@@ -202,5 +210,60 @@ public class Rocket : MonoBehaviour
         hasCrushed = true;
 
         Invoke("Lose", afterCrushDeathDelay);
+    }
+
+    //set local constraints
+    public void SetLocalConstraints(RigidbodyConstraints[] constraints)
+    {
+        foreach(RigidbodyConstraints cons in constraints)
+        {
+            SetLocalConstraint(cons);
+        }
+    }
+
+    //set local constraint
+    public void SetLocalConstraint(RigidbodyConstraints constraint)
+    {
+        Vector3 localVelocity = transform.InverseTransformDirection(_rigidbody.velocity);
+
+        switch (constraint)
+        {
+            case RigidbodyConstraints.FreezeAll:
+                _rigidbody.angularVelocity = new Vector3(0, 0, 0);
+                localVelocity.x = 0;
+                localVelocity.y = 0;
+                localVelocity.z = 0;
+                break;
+            case RigidbodyConstraints.FreezePosition:
+                localVelocity.x = 0;
+                localVelocity.y = 0;
+                localVelocity.z = 0;
+                break;
+            case RigidbodyConstraints.FreezePositionX:
+                localVelocity.x = 0;
+                break;
+            case RigidbodyConstraints.FreezePositionY:
+                localVelocity.y = 0;
+                break;
+            case RigidbodyConstraints.FreezePositionZ:
+                localVelocity.z = 0;
+                break;
+            case RigidbodyConstraints.FreezeRotation:
+                _rigidbody.angularVelocity = new Vector3(0,0,0);
+                break;
+            case RigidbodyConstraints.FreezeRotationX:
+                _rigidbody.angularVelocity = new Vector3(0, _rigidbody.angularVelocity.y, _rigidbody.angularVelocity.z);
+                break;
+            case RigidbodyConstraints.FreezeRotationY:
+                _rigidbody.angularVelocity = new Vector3(_rigidbody.angularVelocity.x, 0, _rigidbody.angularVelocity.z);
+                break;
+            case RigidbodyConstraints.FreezeRotationZ:
+                _rigidbody.angularVelocity = new Vector3(_rigidbody.angularVelocity.x, _rigidbody.angularVelocity.y, 0);
+                break;
+            case RigidbodyConstraints.None:
+                break;
+        }
+
+        _rigidbody.velocity = transform.TransformDirection(localVelocity);
     }
 }
